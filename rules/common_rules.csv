@@ -1,0 +1,13 @@
+id,enabled,priority,severity,operator,field,lat_field,lon_field,arg1,arg2,arg3,args_json,when_expr,scope_type,scope_value,message,suggest_template,tags_csv,version,effective_start,effective_end,owner,notes
+req-sensor,true,10,error,required,sensor_id,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+req-assetType,true,10,error,required,asset_type,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+req-assetId,true,10,error,required,asset_id,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+req-timestamp,true,10,error,required,timestamp,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+req-lat,true,10,error,required,latitude,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+req-lon,true,10,error,required,longitude,,,,,,,,,,,,"schema,required",2025-09-28,,,,DataOps,
+num-temp,true,20,error,number,temperature_f,,,,,,,,temperature_f IS NOT NULL,,,,temperature_f must be a number,,quality,2025-09-28,,,,Ops,
+num-psi,true,20,error,number,pressure_psi,,,,,,,,pressure_psi IS NOT NULL,,,,pressure_psi must be a number,,quality,2025-09-28,,,,Ops,
+range-temp,true,30,warning,range,temperature_f,,,-40,180,,,,temperature_f IS NOT NULL,,,,temperature_f outside plausible range [-40, 180] °F,,plausibility,2025-09-28,,,,Ops,
+range-psi,true,30,warning,range,pressure_psi,,,0,30,,,,pressure_psi IS NOT NULL,,,,pressure_psi outside plausible range [0, 30] PSI,,plausibility,2025-09-28,,,,Ops,
+nonzero-psi,true,35,error,nonZero,pressure_psi,,,,,,,,pressure_psi IS NOT NULL,,,,pressure_psi is 0 (line/sensor fault),,anomaly,2025-09-28,,,,Ops,
+fresh-2min,true,40,warning,freshWithinMinutes,timestamp,,,2,,,,,,,"stale reading (> 2 min old)",,freshness,2025-09-28,,,NRT clock is ingest time,Ops,
