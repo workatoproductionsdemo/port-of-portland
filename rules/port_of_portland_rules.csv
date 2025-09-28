@@ -1,0 +1,5 @@
+id,enabled,priority,severity,operator,field,lat_field,lon_field,arg1,arg2,arg3,args_json,when_expr,scope_type,scope_value,message,suggest_template,tags_csv,version,effective_start,effective_end,owner,notes
+bbox-portland,true,50,error,bbox,,latitude,longitude,45.55,-122.85,45.70,-122.55,,,,,"location outside Port of Portland area",,geofence,2025-09-28,,,,Security,
+reefer-temp,true,60,error,custom,,,,,,,,"{""predicate"":""reeferTemp""}","asset_type==""container"" AND reefer==true AND temperature_f IS NOT NULL",,,reefer container temperature out of spec (32–46°F),"Setpoint check for {asset_id}; current={temperature_f}°F",anomaly,2025-09-28,,,,QA,"custom predicate id 'reeferTemp'"
+battery-range,true,70,warning,range,battery_pct,,,10,100,,,,battery_pct IS NOT NULL,,,,battery low (<10%) or invalid,,health,2025-09-28,,,,Ops,
+rssi-range,true,70,warning,range,signal_rssi,,,-120,-30,,,,signal_rssi IS NOT NULL,,,,signal RSSI out of plausible range,,health,2025-09-28,,,,Ops,
