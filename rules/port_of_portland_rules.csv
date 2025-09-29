@@ -2,4 +2,4 @@ id,enabled,priority,severity,operator,field,lat_field,lon_field,arg1,arg2,arg3,a
 bbox-portland,true,50,error,bbox,,latitude,longitude,45.55,-122.85,45.70,-122.55,,,,,"location outside Port of Portland area",,geofence,2025-09-28,,,Security
 battery-range,true,70,warning,range,battery_pct,,,10,100,,,,,"battery_pct IS NOT NULL",,,battery low (<10%) or invalid,,health,2025-09-28,,Ops
 rssi-range,true,70,warning,range,signal_rssi,,,-120,-30,,,,,"signal_rssi IS NOT NULL",,,signal RSSI out of plausible range,,health,2025-09-28,,Ops
-range-temp,true,30,warning,range,temperature_f,,,-20,180,,,,,,"temperature outside safe range",,plausibility,2025-09-28,,,,Ops
+range-temp,true,30,warning,range,temperature_f,,,-20,380,,,,,,"temperature outside safe range",,plausibility,2025-09-28,,,,Ops
